@@ -1,77 +1,75 @@
-import React from 'react';
-import styles from './Header.module.css';
-import { ExternalLink, Box, ShieldCheck, Zap, Download } from 'lucide-react';
-import type { GitHubRelease } from '../services/github';
+import { useTranslation } from 'react-i18next'
+import styles from './Header.module.css'
+import { ExternalLink, Download } from 'lucide-react'
+import type { GitHubRelease } from '../services/github'
 
 interface HeaderProps {
-  owner: string;
-  repo: string;
-  latestRelease: GitHubRelease | null;
+  owner: string
+  repo: string
+  latestRelease: GitHubRelease | null
 }
 
 const Header: React.FC<HeaderProps> = ({ owner, repo, latestRelease }) => {
-  const downloadAsset = latestRelease?.assets.find(a => 
+  const { t, i18n } = useTranslation()
+
+  const toggleLang = () => {
+    i18n.changeLanguage(i18n.language === 'pt-BR' ? 'en-US' : 'pt-BR')
+  }
+
+  const downloadAsset = latestRelease?.assets.find(a =>
     a.name.endsWith('.apk') || a.name.endsWith('.exe') || a.name.endsWith('.dmg') || a.name.endsWith('.zip')
-  ) || latestRelease?.assets[0];
+  ) || latestRelease?.assets[0]
+
+  const version = latestRelease?.tag_name ?? 'v1.0.0'
 
   return (
-    <header className={styles.header}>
-      <div className={styles.hero}>
-        <div className={styles.logoWrapper}>
-          <img src="favicon.svg" alt="Glucontinuum Logo" className={styles.mainIcon} width={48} height={48} />
+    <header className={styles.hero}>
+      <nav className={styles.nav}>
+        <div />
+        <button onClick={toggleLang} className={styles.langToggle}>
+          {t('lang')}
+        </button>
+      </nav>
+
+      <div className={styles.heroContent}>
+        <div className={styles.logoSection}>
+          <img
+            src="favicon.svg"
+            alt="Glucontinuum"
+            className={styles.logo}
+            width={72}
+            height={72}
+          />
+          <span className={styles.badge}>{t('hero.badge', { version })}</span>
         </div>
-        <div className={styles.badge}>
-          {latestRelease ? `Latest: ${latestRelease.tag_name}` : 'v1.0.0 Stable'}
-        </div>
-        <h1 className={styles.title}>Glucontinuum</h1>
-        <p className={styles.tagline}>
-          Intelligent glucose monitoring and control. Built for metabolic health, 
-          powered by Hexagonal Architecture and Material Design 3.
-        </p>
-        
+
+        <h1 className={styles.title}>{t('hero.title')}</h1>
+        <p className={styles.subtitle}>{t('hero.subtitle')}</p>
+
         <div className={styles.actions}>
           {downloadAsset ? (
-            <a 
-              href={downloadAsset.browser_download_url} 
-              className={styles.primaryBtn}
-            >
-              <Download size={20} className={styles.btnIcon} />
-              Download {latestRelease?.tag_name}
+            <a href={downloadAsset.browser_download_url} className={styles.btnPrimary}>
+              <Download size={20} />
+              {t('hero.download', { version })}
             </a>
           ) : (
-            <a href="#releases" className={styles.primaryBtn}>Get the App</a>
+            <a href="#releases" className={styles.btnPrimary}>
+              {t('hero.downloadFallback')}
+            </a>
           )}
-          <a 
-            href={`https://github.com/${owner}/${repo}`} 
-            target="_blank" 
+          <a
+            href={`https://github.com/${owner}/${repo}`}
+            target="_blank"
             rel="noopener noreferrer"
-            className={styles.secondaryBtn}
+            className={styles.btnSecondary}
           >
             <ExternalLink size={18} />
-            Source Code
+            {t('hero.sourceCode')}
           </a>
         </div>
       </div>
-
-      <div className={styles.features}>
-        <div className={styles.featureCard}>
-          <Box className={styles.featureIcon} size={24} />
-          <h3>Multiplatform</h3>
-          <p>Deploy as PWA or Native Android from a single codebase.</p>
-        </div>
-        <div className={styles.featureCard}>
-          <ShieldCheck className={styles.featureIcon} size={24} />
-          <h3>Sustainable</h3>
-          <p>Hexagonal architecture for strict domain isolation and long-term health.</p>
-        </div>
-        <div className={styles.featureCard}>
-          <Zap className={styles.featureIcon} size={24} />
-          <h3>Intelligent</h3>
-          <p>Smart insulin and carb calculations with IndexedDB persistence.</p>
-        </div>
-      </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

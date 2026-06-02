@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "badge": "Última: {{version}}",
+    "title": "Glucontinuum",
+    "subtitle": "Acompanhe seus níveis de glicose, receba alertas inteligentes, calcule insulina e carboidratos. Tudo em um só lugar.",
+    "download": "Baixar {{version}}",
+    "downloadFallback": "Ver versões",
+    "sourceCode": "Código Fonte"
+  },
+  "features": {
+    "monitoring": {
+      "title": "Monitoramento",
+      "desc": "Acompanhamento contínuo da glicose com análise de tendências e gráficos em tempo real."
+    },
+    "alerts": {
+      "title": "Alertas",
+      "desc": "Notificações inteligentes de hipo e hiperglicemia com limites personalizáveis."
+    },
+    "calculations": {
+      "title": "Cálculos",
+      "desc": "Cálculo de insulina e carboidratos com registro de refeições e histórico."
+    }
+  },
+  "releases": {
+    "title": "Versões",
+    "loading": "Buscando as últimas versões...",
+    "empty": "Nenhuma versão pública encontrada. Volte em breve!",
+    "error": "Erro ao carregar. O repositório pode estar privado ou o limite da API foi atingido.",
+    "downloads": "Downloads",
+    "size": "{{size}} MB",
+    "viewOnGithub": "Ver no GitHub"
+  },
+  "footer": {
+    "copyright": "© {{year}} Projeto Glucontinuum",
+    "tagline": "Monitoramento inteligente de saúde metabólica."
+  },
+  "lang": "English"
+}

@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "badge": "Latest: {{version}}",
+    "title": "Glucontinuum",
+    "subtitle": "Track your glucose levels, get smart alerts, calculate insulin and carbs. All in one place.",
+    "download": "Download {{version}}",
+    "downloadFallback": "View Releases",
+    "sourceCode": "Source Code"
+  },
+  "features": {
+    "monitoring": {
+      "title": "Monitoring",
+      "desc": "Continuous glucose tracking with trend analysis and real-time charts."
+    },
+    "alerts": {
+      "title": "Alerts",
+      "desc": "Smart notifications for hypo and hyperglycemia with customizable thresholds."
+    },
+    "calculations": {
+      "title": "Calculations",
+      "desc": "Insulin and carb calculation with meal logging and history."
+    }
+  },
+  "releases": {
+    "title": "Releases",
+    "loading": "Fetching the latest builds...",
+    "empty": "No public releases found yet. Check back soon!",
+    "error": "Failed to load. The repository might be private or the API rate limit was reached.",
+    "downloads": "Downloads",
+    "size": "{{size}} MB",
+    "viewOnGithub": "View on GitHub"
+  },
+  "footer": {
+    "copyright": "© {{year}} Glucontinuum Project",
+    "tagline": "Intelligent metabolic health monitoring."
+  },
+  "lang": "Português"
+}
