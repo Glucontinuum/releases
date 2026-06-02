@@ -28,5 +28,6 @@ export async function fetchReleases(owner: string, repo: string): Promise<GitHub
     throw new Error('Failed to fetch releases from GitHub.');
   }
 
-  return response.json();
+  const releases: GitHubRelease[] = await response.json();
+  return releases.sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime());
 }
