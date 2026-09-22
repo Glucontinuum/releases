@@ -1,0 +1,8 @@
+{
+  "name": "@glucontinuum/design-system",
+  "version": "0.1.0",
+  "sourceCommit": "f357d239b29016803bd8b89e0952f2fbcbd9bb07",
+  "artifact": "glucontinuum-design-system-0.1.0.tar.gz",
+  "updatedBy": "manual-bootstrap",
+  "notes": "Pinned bootstrap snapshot. Future updates must be opened as a pull request."
+}
