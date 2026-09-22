@@ -1,0 +1,44 @@
+name: Design System update
+
+on:
+  repository_dispatch:
+    types: [design-system-release]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Design System release tag"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Download pinned release
+        env:
+          GH_TOKEN: ${{ secrets.GLU_DESIGN_SYSTEM_READ_TOKEN }}
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          rm -rf /tmp/design-system
+          mkdir -p /tmp/design-system
+          gh release download "$VERSION"             --repo Glucontinuum/glucontinuum-design-system             --pattern "glucontinuum-design-system-*.tar.gz"             --dir /tmp/design-system
+      - name: Create update pull request
+        env:
+          VERSION: ${{ github.event.client_payload.version || inputs.version }}
+        run: |
+          echo "Automated snapshot update for $VERSION is ready for the consumer PR."
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/design-system-update
+          commit-message: "chore: update Glucontinuum Design System"
+          title: "chore: update Glucontinuum Design System"
+          body: "Updates the pinned Design System snapshot. CI validates the generated Web output."
