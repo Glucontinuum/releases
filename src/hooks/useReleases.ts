@@ -14,8 +14,9 @@ export function useReleases(owner: string, repo: string) {
         const data = await fetchReleases(owner, repo);
         setReleases(data);
         setError(null);
-      } catch (err: any) {
-        setError(err.message || 'An unexpected error occurred.');
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : 'An unexpected error occurred.';
+        setError(message);
       } finally {
         setLoading(false);
       }
