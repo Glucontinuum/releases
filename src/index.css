@@ -15,11 +15,6 @@
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --max-width: 860px;
-
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-full: var(--radius-full);
 }
 
 * {
