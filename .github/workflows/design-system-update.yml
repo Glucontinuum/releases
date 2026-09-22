@@ -19,9 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+
       - name: Download pinned release
         env:
           GH_TOKEN: ${{ secrets.GLU_DESIGN_SYSTEM_READ_TOKEN }}
@@ -30,15 +28,40 @@ jobs:
           rm -rf /tmp/design-system
           mkdir -p /tmp/design-system
           gh release download "$VERSION"             --repo Glucontinuum/glucontinuum-design-system             --pattern "glucontinuum-design-system-*.tar.gz"             --dir /tmp/design-system
-      - name: Create update pull request
+
+      - name: Apply generated Web snapshot
         env:
           VERSION: ${{ github.event.client_payload.version || inputs.version }}
         run: |
-          echo "Automated snapshot update for $VERSION is ready for the consumer PR."
-      - uses: peter-evans/create-pull-request@v7
+          archive="$(find /tmp/design-system -maxdepth 1 -name 'glucontinuum-design-system-*.tar.gz' -print -quit)"
+          test -n "$archive"
+          rm -rf vendor/glucontinuum-design-system
+          mkdir -p vendor/glucontinuum-design-system
+          tar -xzf "$archive" -C vendor/glucontinuum-design-system
+          test -f vendor/glucontinuum-design-system/web/tokens.css
+          cp vendor/glucontinuum-design-system/web/tokens.css src/design-system/tokens.css
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+
+          const manifest = JSON.parse(
+            readFileSync('vendor/glucontinuum-design-system/release-manifest.json', 'utf8')
+          );
+          const version = {
+            name: manifest.name,
+            version: manifest.version,
+            sourceCommit: manifest.sourceCommit,
+            artifact: `glucontinuum-design-system-${manifest.version}.tar.gz`,
+            updatedBy: 'design-system-update-workflow',
+            notes: 'Pinned snapshot generated from the published Design System release.'
+          };
+          writeFileSync('design-system/version.json', JSON.stringify(version, null, 2) + '\\n');
+          NODE
+
+      - name: Create update pull request
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: chore/design-system-update
           commit-message: "chore: update Glucontinuum Design System"
           title: "chore: update Glucontinuum Design System"
-          body: "Updates the pinned Design System snapshot. CI validates the generated Web output."
+          body: "Updates the pinned Design System snapshot and generated Web tokens. CI validates the result."
