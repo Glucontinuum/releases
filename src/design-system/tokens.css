@@ -15,6 +15,15 @@
   --color-blue-700: #143F95;
   --color-blue-800: #0F2D6D;
   --color-blue-900: #071B47;
+  --color-gray-100: #E5E5E5;
+  --color-gray-1000: #000000;
+  --color-gray-300: #B3B3B3;
+  --color-gray-50: #F5F5F5;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #383838;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
   --color-green-300: #6FD5A0;
   --color-green-600: #16834B;
   --color-neutral-0: #FFFFFF;
@@ -99,11 +108,11 @@
 }
 
 [data-theme="dark"] {
-  --border-subtle: #143F95;
+  --border-subtle: #383838;
   --brand-on-primary: #071B47;
-  --brand-on-primary-container: #F2F7FF;
+  --brand-on-primary-container: #F5F5F5;
   --brand-primary: #8BB8FF;
-  --brand-primary-container: #0F2D6D;
+  --brand-primary-container: #262626;
   --color-blue-100: #DCEAFF;
   --color-blue-200: #BBD6FF;
   --color-blue-300: #8BB8FF;
@@ -114,6 +123,15 @@
   --color-blue-700: #143F95;
   --color-blue-800: #0F2D6D;
   --color-blue-900: #071B47;
+  --color-gray-100: #E5E5E5;
+  --color-gray-1000: #000000;
+  --color-gray-300: #B3B3B3;
+  --color-gray-50: #F5F5F5;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #383838;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
   --color-green-300: #6FD5A0;
   --color-green-600: #16834B;
   --color-neutral-0: #FFFFFF;
@@ -138,7 +156,7 @@
   --glucose-high: #FFC46B;
   --glucose-in-range: #6FD5A0;
   --glucose-low: #FFB56B;
-  --glucose-unknown: #B8C2D1;
+  --glucose-unknown: #B3B3B3;
   --glucose-urgent-high: #FFB4AB;
   --glucose-urgent-low: #FFB4AB;
   --layout-content-gap: 16px;
@@ -166,15 +184,15 @@
   --status-high: #FFC46B;
   --status-in-range: #6FD5A0;
   --status-low: #FFB56B;
-  --status-unknown: #B8C2D1;
+  --status-unknown: #B3B3B3;
   --status-urgent-high: #FFB4AB;
   --status-urgent-low: #FFB4AB;
-  --surface-canvas: #071B47;
-  --surface-default: #0F2D6D;
-  --surface-raised: #143F95;
-  --text-inverse: #071B47;
-  --text-primary: #F7F9FC;
-  --text-secondary: #DCEAFF;
+  --surface-canvas: #000000;
+  --surface-default: #171717;
+  --surface-raised: #262626;
+  --text-inverse: #000000;
+  --text-primary: #F5F5F5;
+  --text-secondary: #B3B3B3;
   --type-body-size: 16px;
   --type-caption-size: 12px;
   --type-display-line-height: 40px;
