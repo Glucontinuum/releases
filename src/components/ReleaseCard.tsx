@@ -20,6 +20,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
   const dateFormat = isPortuguese ? "d 'de' MMMM 'de' yyyy" : 'MMMM d, yyyy'
   const dateLocale = isPortuguese ? ptBR : enUS
   const publishedDate = format(new Date(release.published_at), dateFormat, { locale: dateLocale })
+  const apkAssets = release.assets.filter((asset) => asset.name.toLowerCase().endsWith('.apk'))
 
   return (
     <article className={`${styles.card} ${isPrerelease ? styles.prerelease : ''}`}>
@@ -47,9 +48,9 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
         </div>
       )}
 
-      {release.assets.length > 0 && (
+      {apkAssets.length > 0 ? (
         <div className={styles.assetsSection}>
-          {release.assets.map((asset) => (
+          {apkAssets.map((asset) => (
             <a
               key={asset.id}
               href={asset.browser_download_url}
@@ -65,6 +66,8 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
             </a>
           ))}
         </div>
+      ) : (
+        <p className={styles.noApk}>{t('releases.noApk')}</p>
       )}
 
       <div className={styles.footer}>

@@ -17,9 +17,11 @@ export interface GitHubRelease {
 }
 
 export function selectDownloadAsset(release: GitHubRelease): GitHubAsset | null {
-  return release.assets.find(asset =>
-    ['.apk', '.exe', '.dmg', '.zip'].some(extension => asset.name.endsWith(extension))
-  ) ?? release.assets[0] ?? null;
+  const apks = release.assets.filter(asset => asset.name.toLowerCase().endsWith('.apk'))
+  return apks.find(asset => asset.name.toLowerCase().includes('production'))
+    ?? apks.find(asset => !asset.name.toLowerCase().includes('nightly'))
+    ?? apks[0]
+    ?? null
 }
 
 const GITHUB_API_BASE = 'https://api.github.com';

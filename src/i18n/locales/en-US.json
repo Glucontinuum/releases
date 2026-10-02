@@ -14,7 +14,7 @@
     "badge": "Latest: {{version}}",
     "title": "Glucontinuum",
     "subtitle": "Track your glucose levels, get smart alerts, calculate insulin and carbs. All in one place.",
-    "download": "Download {{version}}",
+    "download": "Download APK {{version}}",
     "downloadFallback": "View Releases",
     "sourceCode": "Source Code"
   },
@@ -38,6 +38,7 @@
     "empty": "No public releases found yet. Check back soon!",
     "error": "Failed to load. The repository might be private or the API rate limit was reached.",
     "prerelease": "Pre-release",
+    "noApk": "No APK is attached to this release.",
     "downloads": "Downloads",
     "size": "{{size}} MB",
     "viewOnGithub": "View on GitHub"

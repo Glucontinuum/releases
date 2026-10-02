@@ -6,7 +6,7 @@ Ecossistema multiplataforma para acompanhar dados de glicose, tendências e trat
 
 **[Site oficial](https://glucontinuum.github.io/releases/)** · **[Baixar a release mais recente](https://glucontinuum.github.io/releases/?download=latest)** · **[Ver todas as releases](https://github.com/Glucontinuum/releases/releases)**
 
-O link de download abre o arquivo da versão publicada mais recente, incluindo pré-releases. Se não houver arquivo disponível, ele abre a página da versão no GitHub. A página de releases reúne os arquivos e notas de cada versão.
+O link de download abre o APK da versão publicada mais recente, incluindo pré-releases; quando há mais de um APK, prioriza o pacote de produção. Se a versão não tiver APK, ele abre a página da versão no GitHub. A página mostra somente os APKs para download.
 
 ## Produtos
 

@@ -110,6 +110,13 @@
   margin-bottom: var(--space-4);
 }
 
+.noApk {
+  margin-bottom: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--typography-size-label);
+  line-height: var(--typography-line-height-label);
+}
+
 .assetLink {
   display: inline-flex;
   min-height: var(--layout-touch-target);

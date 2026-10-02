@@ -14,7 +14,7 @@
     "badge": "Última: {{version}}",
     "title": "Glucontinuum",
     "subtitle": "Acompanhe seus níveis de glicose, receba alertas inteligentes, calcule insulina e carboidratos. Tudo em um só lugar.",
-    "download": "Baixar {{version}}",
+    "download": "Baixar APK {{version}}",
     "downloadFallback": "Ver versões",
     "sourceCode": "Código Fonte"
   },
@@ -38,6 +38,7 @@
     "empty": "Nenhuma versão pública encontrada. Volte em breve!",
     "error": "Erro ao carregar. O repositório pode estar privado ou o limite da API foi atingido.",
     "prerelease": "Pré-lançamento",
+    "noApk": "Nenhum APK está anexado a esta versão.",
     "downloads": "Downloads",
     "size": "{{size}} MB",
     "viewOnGithub": "Ver no GitHub"
