@@ -1,0 +1,73 @@
+{
+  "assetId": "brand.glucontinuum-mark",
+  "source": "assets/brand/glucontinuum-mark-master.svg",
+  "sourceSha256": "3e6972254cc58953d2110faffcda3c64ac55cb9bdbc364fe7f9dad2fe634a585",
+  "outputs": [
+    {
+      "name": "app",
+      "file": "glucontinuum-mark-app.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android",
+        "zepp"
+      ]
+    },
+    {
+      "name": "monochrome",
+      "file": "glucontinuum-mark-monochrome.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android",
+        "zepp"
+      ]
+    },
+    {
+      "name": "foreground",
+      "file": "glucontinuum-mark-foreground.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android"
+      ]
+    },
+    {
+      "name": "background",
+      "file": "glucontinuum-mark-background.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android"
+      ]
+    },
+    {
+      "name": "small-size",
+      "file": "glucontinuum-mark-small.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android",
+        "zepp"
+      ]
+    },
+    {
+      "name": "notification",
+      "file": "glucontinuum-mark-notification.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "web",
+        "android",
+        "zepp"
+      ]
+    },
+    {
+      "name": "watch",
+      "file": "glucontinuum-mark-watch.svg",
+      "source": "assets/brand/glucontinuum-mark-master.svg",
+      "platforms": [
+        "zepp"
+      ]
+    }
+  ]
+}

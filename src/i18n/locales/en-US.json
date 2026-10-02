@@ -1,4 +1,15 @@
 {
+  "navigation": {
+    "label": "Primary navigation",
+    "home": "Glucontinuum — home"
+  },
+  "language": {
+    "switch": "Switch language to Portuguese"
+  },
+  "theme": {
+    "switchToDark": "Switch to dark theme",
+    "switchToLight": "Switch to light theme"
+  },
   "hero": {
     "badge": "Latest: {{version}}",
     "title": "Glucontinuum",
@@ -26,6 +37,7 @@
     "loading": "Fetching the latest builds...",
     "empty": "No public releases found yet. Check back soon!",
     "error": "Failed to load. The repository might be private or the API rate limit was reached.",
+    "prerelease": "Pre-release",
     "downloads": "Downloads",
     "size": "{{size}} MB",
     "viewOnGithub": "View on GitHub"

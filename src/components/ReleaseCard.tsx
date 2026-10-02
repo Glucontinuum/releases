@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactMarkdown from 'react-markdown'
 import { format } from 'date-fns'
+import { enUS, ptBR } from 'date-fns/locale'
 import type { GitHubRelease } from '../services/github'
 import styles from './ReleaseCard.module.css'
 import { Download, ExternalLink, Calendar, Tag } from 'lucide-react'
@@ -11,13 +12,14 @@ interface ReleaseCardProps {
 }
 
 const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const isPrerelease = release.tag_name.includes('-') || /\d+\.\d+\.\d+\.\d+/.test(release.tag_name)
 
-  const locale = document.documentElement.lang || 'en-US'
-  const dateFormat = locale === 'pt-BR' ? "d 'de' MMMM 'de' yyyy" : 'MMMM d, yyyy'
-
-  const publishedDate = format(new Date(release.published_at), dateFormat)
+  const locale = i18n.resolvedLanguage ?? i18n.language
+  const isPortuguese = locale === 'pt-BR'
+  const dateFormat = isPortuguese ? "d 'de' MMMM 'de' yyyy" : 'MMMM d, yyyy'
+  const dateLocale = isPortuguese ? ptBR : enUS
+  const publishedDate = format(new Date(release.published_at), dateFormat, { locale: dateLocale })
 
   return (
     <article className={`${styles.card} ${isPrerelease ? styles.prerelease : ''}`}>
@@ -31,7 +33,7 @@ const ReleaseCard: React.FC<ReleaseCardProps> = ({ release }) => {
             <Calendar size={14} />
             {publishedDate}
           </span>
-          {isPrerelease && <span className={styles.preBadge}>pre-release</span>}
+          {isPrerelease && <span className={styles.preBadge}>{t('releases.prerelease')}</span>}
         </div>
       </div>
 

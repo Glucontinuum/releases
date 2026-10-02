@@ -16,6 +16,12 @@ export interface GitHubRelease {
   assets: GitHubAsset[];
 }
 
+export function selectDownloadAsset(release: GitHubRelease): GitHubAsset | null {
+  return release.assets.find(asset =>
+    ['.apk', '.exe', '.dmg', '.zip'].some(extension => asset.name.endsWith(extension))
+  ) ?? release.assets[0] ?? null;
+}
+
 const GITHUB_API_BASE = 'https://api.github.com';
 
 export async function fetchReleases(owner: string, repo: string): Promise<GitHubRelease[]> {

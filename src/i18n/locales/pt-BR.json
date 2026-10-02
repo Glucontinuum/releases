@@ -1,4 +1,15 @@
 {
+  "navigation": {
+    "label": "Navegação principal",
+    "home": "Glucontinuum — início"
+  },
+  "language": {
+    "switch": "Mudar idioma para inglês"
+  },
+  "theme": {
+    "switchToDark": "Ativar tema escuro",
+    "switchToLight": "Ativar tema claro"
+  },
   "hero": {
     "badge": "Última: {{version}}",
     "title": "Glucontinuum",
@@ -26,6 +37,7 @@
     "loading": "Buscando as últimas versões...",
     "empty": "Nenhuma versão pública encontrada. Volte em breve!",
     "error": "Erro ao carregar. O repositório pode estar privado ou o limite da API foi atingido.",
+    "prerelease": "Pré-lançamento",
     "downloads": "Downloads",
     "size": "{{size}} MB",
     "viewOnGithub": "Ver no GitHub"

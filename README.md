@@ -1,25 +1,43 @@
-# Glucontinuum Web
+# Glucontinuum
 
-The official website for **Glucontinuum** — an intelligent metabolic health monitoring platform.
+Ecossistema multiplataforma para acompanhar dados de glicose, tendências e tratamentos, com ferramentas para celular, relógio e web.
 
-This repository serves as the public face of the project, hosting the landing page and providing access to official releases (mirrored from the private core repository).
+[![Quality](https://github.com/Glucontinuum/releases/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/Glucontinuum/releases/actions/workflows/quality.yml)
 
-## About the Project
-Glucontinuum is a cross-platform application for intelligent glucose monitoring and control, built with **React, Vite, Capacitor, Material Design 3, and Hexagonal Architecture**.
+**[Site oficial](https://glucontinuum.github.io/releases/)** · **[Baixar a release mais recente](https://glucontinuum.github.io/releases/?download=latest)** · **[Ver todas as releases](https://github.com/Glucontinuum/releases/releases)**
 
-### Sustainable Architecture
-The project follows **Lightweight Hexagonal Architecture (Ports and Adapters)**, ensuring strict isolation between the domain logic and infrastructure/UI layers.
+O link de download abre o arquivo da versão publicada mais recente, incluindo pré-releases. Se não houver arquivo disponível, ele abre a página da versão no GitHub. A página de releases reúne os arquivos e notas de cada versão.
 
-### Design System
-The visual layer is grounded in **Material Design 3 (Material You)**, utilizing tokens and MD3 standards for a consistent and modern experience across all platforms.
+## Produtos
 
-## Releases
-Releases are automatically mirrored to this repository from the main project. The website dynamically fetches and displays these releases for public download.
+| Produto | Plataforma e finalidade | Código e estado |
+| --- | --- | --- |
+| **Glucontinuum Native** | Aplicativo Android nativo para monitoramento, alertas, tratamentos e relatórios. | [Repositório](https://github.com/Glucontinuum/glucontinuum) · Em desenvolvimento beta. |
+| **Glucontinuum Legacy** | Aplicativo React com PWA e versão Android baseada em Capacitor; segue recebendo manutenção durante a migração nativa. | [Repositório](https://github.com/Glucontinuum/glucontinuum-legacy) |
+| **Glucontinuum Watch** | Miniapp Zepp OS e watch face para integração com o Amazfit Bip 6. | [Repositório](https://github.com/Glucontinuum/glucontinuum-watch) · Publicação condicionada à aprovação do relatório de soak do relógio. |
+| **Site e releases** | Página pública do projeto, com apresentação e downloads das versões publicadas. | [Este repositório](https://github.com/Glucontinuum/releases) |
 
-## Tech Stack
-- **Framework**: React 19 + TypeScript
-- **Build Tool**: Vite 8
-- **Icons**: Lucide React
-- **Styling**: Vanilla CSS (MD3 Tokens)
-- **Content**: React Markdown
-- **Deployment**: GitHub Pages
+O [Design System](https://github.com/Glucontinuum/glucontinuum-design-system) compartilha tokens, componentes e assets entre os produtos.
+
+## Esteira de qualidade
+
+O badge **Quality** no topo mostra o resultado mais recente do workflow deste repositório. A esteira instala as dependências e executa `npm run check` — validação do Design System, lint e build — em alterações de código e pull requests.
+
+[Ver execuções e detalhes da esteira](https://github.com/Glucontinuum/releases/actions/workflows/quality.yml)
+
+## Desenvolvimento do site
+
+Requer Node.js 20 ou superior.
+
+```bash
+npm ci
+npm run dev
+```
+
+Para gerar o build de produção:
+
+```bash
+npm run check
+```
+
+O site é feito com React, TypeScript e Vite e publicado no GitHub Pages.

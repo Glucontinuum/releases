@@ -1,20 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import './design-system/tokens.css';
 
 :root {
-  --color-bg: var(--surface-canvas);
-  --color-surface: var(--surface-default);
-  --color-border: var(--border-subtle);
-  --color-text: var(--text-primary);
-  --color-text-muted: var(--text-secondary);
-  --color-primary: var(--brand-primary);
-  --color-primary-hover: var(--color-blue-700);
-  --color-primary-light: var(--brand-primary-container);
-  --color-accent: var(--color-blue-400);
-  --color-accent2: var(--color-blue-300);
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --max-width: 860px;
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }
 
 * {
@@ -28,12 +24,14 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-width: 20rem;
+  min-height: 100vh;
+  background-color: var(--surface-canvas);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--typography-size-body);
+  line-height: var(--typography-line-height-body);
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 a {
@@ -41,9 +39,20 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4 {
-  color: var(--color-text);
-  letter-spacing: -0.02em;
+button {
+  color: inherit;
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus-indicator);
+  outline-offset: var(--space-1);
+}
+
+::selection {
+  background: var(--brand-primary-container);
+  color: var(--brand-on-primary-container);
 }
 
 #root {
