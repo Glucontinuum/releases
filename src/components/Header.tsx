@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
 import styles from './Header.module.css'
 import { ExternalLink, Download, Moon, Sun } from 'lucide-react'
 import { selectDownloadAsset, type GitHubRelease } from '../services/github'
+import { loadNativePreview, type NativePreview } from '../services/native-preview'
 
 interface HeaderProps {
   owner: string
@@ -13,6 +15,15 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ owner, repo, latestRelease, theme, onToggleTheme }) => {
   const { t, i18n } = useTranslation()
+  const [preview, setPreview] = useState<NativePreview | null>(null)
+
+  useEffect(() => {
+    const controller = new AbortController()
+    loadNativePreview(controller.signal).then((value) => {
+      if (!controller.signal.aborted) setPreview(value)
+    })
+    return () => controller.abort()
+  }, [])
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'pt-BR' ? 'en-US' : 'pt-BR')
@@ -53,36 +64,60 @@ const Header: React.FC<HeaderProps> = ({ owner, repo, latestRelease, theme, onTo
         </div>
       </nav>
 
-      <div className={styles.heroContent}>
-        <span className={styles.badge}>
-          <span className={styles.badgeDot} aria-hidden="true" />
-          {t('hero.badge', { version })}
-        </span>
+      <div className={`${styles.heroContent} ${preview ? styles.withPreview : ''}`}>
+        <div className={styles.heroCopy}>
+          <span className={styles.badge}>
+            <span className={styles.badgeDot} aria-hidden="true" />
+            {t('hero.badge', { version })}
+          </span>
 
-        <h1 className={styles.title}>{t('hero.title')}</h1>
-        <p className={styles.subtitle}>{t('hero.subtitle')}</p>
+          <h1 className={styles.title}>{t('hero.title')}</h1>
+          <p className={styles.subtitle}>{t('hero.subtitle')}</p>
 
-        <div className={styles.actions}>
-          {downloadAsset ? (
-            <a href={downloadAsset.browser_download_url} className={styles.btnPrimary}>
-              <Download size={20} />
-              {t('hero.download', { version })}
+          <div className={styles.actions}>
+            {downloadAsset ? (
+              <a href={downloadAsset.browser_download_url} className={styles.btnPrimary}>
+                <Download size={20} />
+                {t('hero.download', { version })}
+              </a>
+            ) : (
+              <a href="#releases" className={styles.btnPrimary}>
+                {t('hero.downloadFallback')}
+              </a>
+            )}
+            <a
+              href={`https://github.com/${owner}/${repo}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnSecondary}
+            >
+              <ExternalLink size={18} />
+              {t('hero.sourceCode')}
             </a>
-          ) : (
-            <a href="#releases" className={styles.btnPrimary}>
-              {t('hero.downloadFallback')}
-            </a>
-          )}
-          <a
-            href={`https://github.com/${owner}/${repo}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.btnSecondary}
-          >
-            <ExternalLink size={18} />
-            {t('hero.sourceCode')}
-          </a>
+          </div>
         </div>
+        {preview && (
+          <figure className={styles.preview}>
+            <a
+              href={preview[theme]}
+              className={styles.screenLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('hero.previewOpen')}
+            >
+              <img
+                src={preview[theme]}
+                alt={t('hero.previewAlt', { theme: t(`hero.${theme}Theme`) })}
+                width={preview.width}
+                height={preview.height}
+                className={styles.screenImage}
+                decoding="async"
+                onError={() => setPreview(null)}
+              />
+            </a>
+            <figcaption>{t('hero.previewLabel')}</figcaption>
+          </figure>
+        )}
       </div>
     </header>
   )

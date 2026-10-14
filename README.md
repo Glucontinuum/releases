@@ -6,7 +6,16 @@ Ecossistema multiplataforma para acompanhar dados de glicose, tendências e trat
 
 **[Site oficial](https://glucontinuum.github.io/releases/)** · **[Baixar a release mais recente](https://glucontinuum.github.io/releases/?download=latest)** · **[Ver todas as releases](https://github.com/Glucontinuum/releases/releases)**
 
-O link de download abre o APK da versão publicada mais recente, incluindo pré-releases; quando há mais de um APK, prioriza o pacote de produção. Se a versão não tiver APK, ele abre a página da versão no GitHub. A página mostra somente os APKs para download.
+## Prévia do Android nativo
+
+<p>
+  <a href="https://glucontinuum.github.io/releases/"><img src="https://raw.githubusercontent.com/Glucontinuum/releases/screenshots/latest/home-light.png" alt="Home do Glucontinuum nativo no modo claro" width="160"></a>
+  <a href="https://glucontinuum.github.io/releases/"><img src="https://raw.githubusercontent.com/Glucontinuum/releases/screenshots/latest/home-dark.png" alt="Home do Glucontinuum nativo no modo escuro" width="160"></a>
+</p>
+
+Capturas validadas com dados fictícios. O hero do site acompanha o tema claro/escuro escolhido.
+
+O link de download abre o APK da versão publicada mais recente, incluindo pré-releases; quando há mais de um APK, prioriza o pacote de produção. Se a versão não tiver APK, ele abre a página da versão no GitHub. A lista de downloads mostra somente os APKs.
 
 ## Produtos
 
@@ -41,3 +50,5 @@ npm run check
 ```
 
 O site é feito com React, TypeScript e Vite e publicado no GitHub Pages.
+
+A prévia usa imagens e um manifest público na branch `screenshots`; não cria releases de imagens e não exige novo deploy do site a cada captura. Consulte [`docs/native-preview.md`](docs/native-preview.md).
