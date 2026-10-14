@@ -1,6 +1,6 @@
 {
-  "captureRunId": 38623964862,
-  "capturedAt": "2026-10-14T19:35:48+00:00",
+  "captureRunId": 38647588116,
+  "capturedAt": "2026-10-14T23:52:38+00:00",
   "device": {
     "api": 35,
     "density": 560,
@@ -14,12 +14,12 @@
   },
   "images": {
     "dark": {
-      "path": "captures/38623964862-2/home-dark.png",
-      "sha256": "6808785d87376ef13ae6fe771e60b9c244dbf677798f3334b88cb2d5170351af"
+      "path": "captures/38647588116-2/home-dark.png",
+      "sha256": "841a526ed7a077f19b33a4fe15307521109047afe76e4cf9be1dcf6971533eba"
     },
     "light": {
-      "path": "captures/38623964862-2/home-light.png",
-      "sha256": "fea171ada4bfb684a57fe80858e310e523e0fad04426f7e73a6bc72cf0ccbc45"
+      "path": "captures/38647588116-2/home-light.png",
+      "sha256": "f09c993eda743ef9c5e541a6ffee153345f60e477b727ae2d237235f861d9bf1"
     }
   },
   "runAttempt": 2,
@@ -27,6 +27,6 @@
   "sourceRunId": 38612758243,
   "sourceSha": "718c9f25bb4125be0b2feb48c55f43bb61183bab",
   "status": "passed",
-  "testSourceSha": "19ae61bcdca514699e598126425c1af3e4de5f1f",
-  "workflowSha": "19ae61bcdca514699e598126425c1af3e4de5f1f"
+  "testSourceSha": "4bbc19c34a551503f3613a7e831980fc35575703",
+  "workflowSha": "4bbc19c34a551503f3613a7e831980fc35575703"
 }
