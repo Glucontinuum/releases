@@ -33,8 +33,10 @@ The new capture profile models Galaxy S22 Ultra screen geometry (1440×3088,
 configured density 560) on AOSP API 35. It does not emulate Samsung One UI.
 PNG aspect ratio comes from validated dimensions and is preserved by the hero.
 
-The hero implementation needs a normal initial build/deploy through the existing
-site process. Subsequent captures update raw image/manifest files, so they need
+The hero implementation needs an initial successful site deployment. The Quality
+workflow deploys its checked build on main pushes or a manual main execution;
+see [site deployment](site-deployment.md) for the one-time Pages setup. Subsequent
+captures update raw image/manifest files, so they need
 neither another site build nor edits to either README. GitHub's public raw/Camo
 caches may briefly retain an older image; capture-specific paths remain stable.
 

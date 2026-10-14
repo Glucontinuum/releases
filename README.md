@@ -28,9 +28,11 @@ O link de download abre o APK da versão publicada mais recente, incluindo pré-
 
 O [Design System](https://github.com/Glucontinuum/glucontinuum-design-system) compartilha tokens, componentes e assets entre os produtos.
 
-## Esteira de qualidade
+## Esteira de qualidade e publicação
 
-O badge **Quality** no topo mostra o resultado mais recente do workflow deste repositório. A esteira instala as dependências e executa `npm run check` — validação do Design System, lint e build — em alterações de código e pull requests.
+O badge **Quality** no topo mostra o resultado mais recente do workflow deste repositório. A esteira instala as dependências e executa `npm run check` — validação do Design System, testes da prévia, lint e build — em alterações de código e pull requests. Em pushes na `main`, publica o mesmo `dist/` aprovado no GitHub Pages. Também permite execução manual na `main` para republicar. Pull requests, tags e outras branches executam somente a validação.
+
+O setup do repositório deve usar **Settings → Pages → Build and deployment → Source: GitHub Actions**. A configuração e os critérios para confirmar uma publicação ficam em [`docs/site-deployment.md`](docs/site-deployment.md).
 
 [Ver execuções e detalhes da esteira](https://github.com/Glucontinuum/releases/actions/workflows/quality.yml)
 
