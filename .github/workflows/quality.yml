@@ -4,22 +4,37 @@ on:
   push:
     paths:
       - "src/**"
+      - "public/**"
       - "design-system/**"
       - "scripts/**"
+      - "index.html"
+      - "vite.config.*"
+      - "tsconfig*.json"
+      - "eslint.config.*"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/**"
   pull_request:
     paths:
       - "src/**"
+      - "public/**"
       - "design-system/**"
       - "scripts/**"
+      - "index.html"
+      - "vite.config.*"
+      - "tsconfig*.json"
+      - "eslint.config.*"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -33,3 +48,29 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+
+      - name: Upload checked site for Pages
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+          retention-days: 1
+
+  deploy:
+    name: Deploy site to GitHub Pages
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy checked artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
