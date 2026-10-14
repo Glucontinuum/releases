@@ -16,7 +16,12 @@
     "subtitle": "Track your glucose levels, get smart alerts, calculate insulin and carbs. All in one place.",
     "download": "Download APK {{version}}",
     "downloadFallback": "View Releases",
-    "sourceCode": "Source Code"
+    "sourceCode": "Source Code",
+    "previewLabel": "Native Android · Demo data",
+    "previewAlt": "Glucontinuum Native Home in {{theme}} mode",
+    "previewOpen": "View the app screenshot at full size",
+    "lightTheme": "light",
+    "darkTheme": "dark"
   },
   "features": {
     "monitoring": {

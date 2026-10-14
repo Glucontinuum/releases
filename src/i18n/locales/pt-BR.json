@@ -16,7 +16,12 @@
     "subtitle": "Acompanhe seus níveis de glicose, receba alertas inteligentes, calcule insulina e carboidratos. Tudo em um só lugar.",
     "download": "Baixar APK {{version}}",
     "downloadFallback": "Ver versões",
-    "sourceCode": "Código Fonte"
+    "sourceCode": "Código Fonte",
+    "previewLabel": "Android nativo · Dados fictícios",
+    "previewAlt": "Home do Glucontinuum nativo no modo {{theme}}",
+    "previewOpen": "Ver a captura do aplicativo em tamanho completo",
+    "lightTheme": "claro",
+    "darkTheme": "escuro"
   },
   "features": {
     "monitoring": {
