@@ -4,6 +4,7 @@ import styles from './Header.module.css'
 import { ExternalLink, Download, Moon, Sun } from 'lucide-react'
 import { selectDownloadAsset, type GitHubRelease } from '../services/github'
 import { loadNativePreview, type NativePreview } from '../services/native-preview'
+import NativePreviewCarousel from './NativePreviewCarousel'
 
 interface HeaderProps {
   owner: string
@@ -97,26 +98,7 @@ const Header: React.FC<HeaderProps> = ({ owner, repo, latestRelease, theme, onTo
           </div>
         </div>
         {preview && (
-          <figure className={styles.preview}>
-            <a
-              href={preview[theme]}
-              className={styles.screenLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t('hero.previewOpen')}
-            >
-              <img
-                src={preview[theme]}
-                alt={t('hero.previewAlt', { theme: t(`hero.${theme}Theme`) })}
-                width={preview.width}
-                height={preview.height}
-                className={styles.screenImage}
-                decoding="async"
-                onError={() => setPreview(null)}
-              />
-            </a>
-            <figcaption>{t('hero.previewLabel')}</figcaption>
-          </figure>
+          <NativePreviewCarousel preview={preview} theme={theme} onUnavailable={() => setPreview(null)} />
         )}
       </div>
     </header>

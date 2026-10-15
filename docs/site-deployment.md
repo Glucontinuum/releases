@@ -3,6 +3,7 @@
 The Quality workflow validates the site and publishes its checked `dist/` to
 GitHub Pages after relevant changes reach `main`. Its deploy job depends on the
 check job; failed checks or a failed artifact upload prevent publication.
+Quality installs Chromium for the carousel browser regressions before `npm run check`.
 
 Pull requests, tags and other branches keep their checks but do not upload a
 Pages artifact or deploy. A manual Quality run on `main` validates and republishes
@@ -46,8 +47,11 @@ keeps validation and deployment in the same run and supplies deployment status.
 4. Confirm the run's source SHA is the main revision you intended to publish.
    Pages/CDN propagation may take a few minutes.
 
-The Native screenshot pair is a separate prerequisite for seeing the hero image.
+Native screenshot publication is a separate prerequisite for seeing the hero preview.
 The deployed hero stays usable while public screenshot metadata is unavailable.
 Once approved captures are published to the `screenshots` branch, it loads them
 on page load without another deployment. Screenshot-only updates do not match
 the workflow's source paths and therefore do not start the site build.
+Legacy Home pairs remain static; a full catalogue manifest enables the twelve-screen
+carousel. Deploy the carousel once, then run the Native workflow in its default
+catalogue scope to publish all 24 route/theme images. See [preview contract](native-preview.md).

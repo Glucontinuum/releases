@@ -7,6 +7,8 @@ on:
       - "public/**"
       - "design-system/**"
       - "scripts/**"
+      - "tests/**"
+      - "playwright.config.*"
       - "index.html"
       - "vite.config.*"
       - "tsconfig*.json"
@@ -20,6 +22,8 @@ on:
       - "public/**"
       - "design-system/**"
       - "scripts/**"
+      - "tests/**"
+      - "playwright.config.*"
       - "index.html"
       - "vite.config.*"
       - "tsconfig*.json"
@@ -47,6 +51,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - run: npm run check
 
       - name: Upload checked site for Pages
