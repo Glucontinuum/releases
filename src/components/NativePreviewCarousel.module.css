@@ -1,0 +1,116 @@
+.preview {
+  display: grid;
+  width: 100%;
+  max-width: 20rem;
+  justify-self: center;
+  justify-items: center;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.screenLink {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  padding: var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--surface-default);
+  box-shadow: 0 var(--space-6) var(--space-12) color-mix(in srgb, var(--text-primary) 16%, transparent);
+}
+
+.screenImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  animation: reveal 280ms ease-out;
+}
+
+.caption {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  min-height: 6rem;
+  color: var(--text-secondary);
+  font-size: var(--typography-size-label);
+  line-height: var(--typography-line-height-label);
+  text-align: center;
+}
+
+.caption strong {
+  color: var(--text-primary);
+  font-size: var(--typography-size-body);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  font-size: var(--typography-size-label);
+}
+
+.controls button {
+  display: inline-flex;
+  width: var(--layout-touch-target);
+  height: var(--layout-touch-target);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  background: var(--surface-default);
+  cursor: pointer;
+}
+
+.controls button:hover:not(:disabled) {
+  background: var(--brand-primary-container);
+}
+
+.controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 18rem;
+}
+
+.indicators button {
+  display: grid;
+  width: var(--layout-touch-target);
+  height: var(--layout-touch-target);
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+}
+
+.indicators span {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--text-secondary);
+}
+
+.indicators [aria-current='true'] span {
+  width: var(--space-4);
+  background: var(--brand-primary);
+}
+
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 56rem) {
+  .screenLink { max-width: 15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screenImage { animation: none; }
+}

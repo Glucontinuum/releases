@@ -13,7 +13,8 @@ Ecossistema multiplataforma para acompanhar dados de glicose, tendências e trat
   <a href="https://glucontinuum.github.io/releases/"><img src="https://raw.githubusercontent.com/Glucontinuum/releases/screenshots/latest/home-dark.png" alt="Home do Glucontinuum nativo no modo escuro" width="160"></a>
 </p>
 
-Capturas validadas com dados fictícios. O hero do site acompanha o tema claro/escuro escolhido.
+Capturas validadas com dados fictícios. A prévia do site alterna entre as telas do
+catálogo publicado, com setas, indicadores e pausa, acompanhando o tema claro/escuro.
 
 O link de download abre o APK da versão publicada mais recente, incluindo pré-releases; quando há mais de um APK, prioriza o pacote de produção. Se a versão não tiver APK, ele abre a página da versão no GitHub. A lista de downloads mostra somente os APKs.
 
@@ -30,7 +31,7 @@ O [Design System](https://github.com/Glucontinuum/glucontinuum-design-system) co
 
 ## Esteira de qualidade e publicação
 
-O badge **Quality** no topo mostra o resultado mais recente do workflow deste repositório. A esteira instala as dependências e executa `npm run check` — validação do Design System, testes da prévia, lint e build — em alterações de código e pull requests. Em pushes na `main`, publica o mesmo `dist/` aprovado no GitHub Pages. Também permite execução manual na `main` para republicar. Pull requests, tags e outras branches executam somente a validação.
+O badge **Quality** no topo mostra o resultado mais recente do workflow deste repositório. A esteira instala as dependências e o Chromium e executa `npm run check` — validação do Design System, testes da prévia e do carrossel em navegador, lint e build — em alterações de código e pull requests. Em pushes na `main`, publica o mesmo `dist/` aprovado no GitHub Pages. Também permite execução manual na `main` para republicar. Pull requests, tags e outras branches executam somente a validação.
 
 O setup do repositório deve usar **Settings → Pages → Build and deployment → Source: GitHub Actions**. A configuração e os critérios para confirmar uma publicação ficam em [`docs/site-deployment.md`](docs/site-deployment.md).
 
@@ -45,9 +46,10 @@ npm ci
 npm run dev
 ```
 
-Para gerar o build de produção:
+Para validar e gerar o build de produção:
 
 ```bash
+npx playwright install --with-deps chromium
 npm run check
 ```
 

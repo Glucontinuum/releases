@@ -39,3 +39,29 @@ test('an unavailable manifest leaves the existing hero usable', async () => {
   const preview = await loadNativePreview(undefined, async () => new Response(JSON.stringify(manifest)))
   assert.equal(preview.height, 3088)
 })
+
+const routes = ['home', 'alerts', 'reports', 'more', 'doses', 'inventory', 'settings',
+  'notifications', 'appearance', 'chart-settings', 'about', 'juggluco-test']
+const catalogue = {
+  ...manifest, captureScope: 'catalogue',
+  screens: routes.map((route) => ({ route, images: Object.fromEntries(['light', 'dark'].map((theme) => [theme, {
+    path: `captures/200-1/${route}-${theme}.png`, sha256: 'b'.repeat(64),
+  }])) })),
+}
+
+test('a complete catalogue exposes all twelve ordered screen pairs for the carousel', () => {
+  const preview = parseNativePreview(catalogue)
+  assert.deepEqual(preview.screens.map((screen) => screen.route), routes)
+  assert.equal(preview.screens[6].dark,
+    'https://raw.githubusercontent.com/Glucontinuum/releases/screenshots/captures/200-1/settings-dark.png')
+  assert.equal(parseNativePreview(manifest).screens.length, 1)
+})
+
+test('a catalogue rejects incomplete, duplicate or foreign screen paths', () => {
+  for (const screens of [catalogue.screens.slice(0, 1), [...catalogue.screens.slice(0, -1), catalogue.screens[0]],
+    catalogue.screens.map((screen) => screen.route === 'settings'
+      ? { ...screen, images: { ...screen.images, dark: { path: 'https://example.invalid/settings.png', sha256: 'b'.repeat(64) } } }
+      : screen)]) {
+    assert.equal(parseNativePreview({ ...catalogue, screens }), null)
+  }
+})
