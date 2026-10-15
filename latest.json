@@ -1,6 +1,7 @@
 {
-  "captureRunId": 38647588116,
-  "capturedAt": "2026-10-14T23:52:38+00:00",
+  "captureRunId": 38800817673,
+  "captureScope": "catalogue",
+  "capturedAt": "2026-10-15T20:18:16+00:00",
   "device": {
     "api": 35,
     "density": 560,
@@ -14,19 +15,177 @@
   },
   "images": {
     "dark": {
-      "path": "captures/38647588116-2/home-dark.png",
-      "sha256": "841a526ed7a077f19b33a4fe15307521109047afe76e4cf9be1dcf6971533eba"
+      "path": "captures/38800817673-1/home-dark.png",
+      "sha256": "f0bf48d3ff05c5d793ac4b05287a57e14e77ed2930577cbda985c1f41708d202"
     },
     "light": {
-      "path": "captures/38647588116-2/home-light.png",
-      "sha256": "f09c993eda743ef9c5e541a6ffee153345f60e477b727ae2d237235f861d9bf1"
+      "path": "captures/38800817673-1/home-light.png",
+      "sha256": "04ed1aca900f4da7c11d2da645e8b119d0bddd197b13f289e658360f538bc9c9"
     }
   },
-  "runAttempt": 2,
+  "runAttempt": 1,
   "schemaVersion": 1,
-  "sourceRunId": 38612758243,
-  "sourceSha": "718c9f25bb4125be0b2feb48c55f43bb61183bab",
+  "screens": [
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/home-dark.png",
+          "sha256": "f0bf48d3ff05c5d793ac4b05287a57e14e77ed2930577cbda985c1f41708d202"
+        },
+        "light": {
+          "path": "captures/38800817673-1/home-light.png",
+          "sha256": "04ed1aca900f4da7c11d2da645e8b119d0bddd197b13f289e658360f538bc9c9"
+        }
+      },
+      "route": "home"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/alerts-dark.png",
+          "sha256": "7c62edfb4ea97bd98c6d70ea7bbc45a1a3f720d8aecb7c23c308ec64b6ab5649"
+        },
+        "light": {
+          "path": "captures/38800817673-1/alerts-light.png",
+          "sha256": "ad46bdc355b39bd476d7bf21865b6340bac18cbddf3092c17e075b62af9cb440"
+        }
+      },
+      "route": "alerts"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/reports-dark.png",
+          "sha256": "0495d30e12c7f6f65daabb4c6779c25ec4f4bee09c0bafead171994a1a69248f"
+        },
+        "light": {
+          "path": "captures/38800817673-1/reports-light.png",
+          "sha256": "8797f41b03a651e7b55f3655a5de11e9aad3dc525915b991d26f755bdf0bd5ab"
+        }
+      },
+      "route": "reports"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/more-dark.png",
+          "sha256": "15f3af6dd3a7bf55f6ba0b560b86cf2a567282e41113f7bb2ff1e82f5f40a6cb"
+        },
+        "light": {
+          "path": "captures/38800817673-1/more-light.png",
+          "sha256": "cc9654879ac97a18774791a8878d254e4259fb4b0ef1f91ec256880e5a345821"
+        }
+      },
+      "route": "more"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/doses-dark.png",
+          "sha256": "e68c5b28216623f8bbd298938d966450d0ff4e7bb86cebefd5b576249085449c"
+        },
+        "light": {
+          "path": "captures/38800817673-1/doses-light.png",
+          "sha256": "7ce9e03154353c1fbfa001b32547a2baa8a3e33f7c078199d1a881b1dfc64ab6"
+        }
+      },
+      "route": "doses"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/inventory-dark.png",
+          "sha256": "8b135c58fa28a107c917fa5031745045996f7e31349b726f1c8ed6e700ee4f7c"
+        },
+        "light": {
+          "path": "captures/38800817673-1/inventory-light.png",
+          "sha256": "a5e2ae06489af7bf7b2d06f6ec100e598ca996ded17383285ca72a8cfd02d8d1"
+        }
+      },
+      "route": "inventory"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/settings-dark.png",
+          "sha256": "b6d0af68d1fbd611e76bc7d3b35e0fe5e10a157e8e43fc73b5d45bc051fc3b84"
+        },
+        "light": {
+          "path": "captures/38800817673-1/settings-light.png",
+          "sha256": "7765cf59aa06097e7493689004ca6fbaacd2a093dd84d3fe3c3bb4f818498acb"
+        }
+      },
+      "route": "settings"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/notifications-dark.png",
+          "sha256": "4027190e924638e30b2282f16eb7adcb807c7d90e6516daa620dd57086009f43"
+        },
+        "light": {
+          "path": "captures/38800817673-1/notifications-light.png",
+          "sha256": "a3cfbf7dc712a8d933de647b741c73ed601fbe7e48e13bc798c6cc73c6df370e"
+        }
+      },
+      "route": "notifications"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/appearance-dark.png",
+          "sha256": "e4e23814ddd6afecbca5945cd2e40417418d9f1e400e6115afe4d5787158caf3"
+        },
+        "light": {
+          "path": "captures/38800817673-1/appearance-light.png",
+          "sha256": "350b8c89dd00607555ec93708335a7fd3f8cd5db5fab0934d5625da022a7c230"
+        }
+      },
+      "route": "appearance"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/chart-settings-dark.png",
+          "sha256": "71af829bb455bc30a4aae23376ead9ff1a480bedfcaf35960e794d028886f5bb"
+        },
+        "light": {
+          "path": "captures/38800817673-1/chart-settings-light.png",
+          "sha256": "fe332c5f4049aedff824773abac9e38bad7533da98cddc84116ede0fd3f2657a"
+        }
+      },
+      "route": "chart-settings"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/about-dark.png",
+          "sha256": "27b49b63d777954d50b3b0d7a82091c472142e858955c9252574f2e136bfbd01"
+        },
+        "light": {
+          "path": "captures/38800817673-1/about-light.png",
+          "sha256": "6327d07d73368745fcc1db6bfd9dbc92fb77daa25c6bc9f72de45fbe5006bd4c"
+        }
+      },
+      "route": "about"
+    },
+    {
+      "images": {
+        "dark": {
+          "path": "captures/38800817673-1/juggluco-test-dark.png",
+          "sha256": "44f372c85aa42d444ab631361b13644d237ef8742e3b055360690f2f3f8d03ed"
+        },
+        "light": {
+          "path": "captures/38800817673-1/juggluco-test-light.png",
+          "sha256": "edca20df0d6a1041e03cba4b3462154562427624650bbfdc2c8f00907021241c"
+        }
+      },
+      "route": "juggluco-test"
+    }
+  ],
+  "sourceRunId": 38794754111,
+  "sourceSha": "86a14ffeab31379fa3ddd5fcb48c283150cec05c",
   "status": "passed",
-  "testSourceSha": "4bbc19c34a551503f3613a7e831980fc35575703",
-  "workflowSha": "4bbc19c34a551503f3613a7e831980fc35575703"
+  "testSourceSha": "86a14ffeab31379fa3ddd5fcb48c283150cec05c",
+  "workflowSha": "86a14ffeab31379fa3ddd5fcb48c283150cec05c"
 }
